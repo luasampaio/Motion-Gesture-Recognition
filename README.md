@@ -1,11 +1,13 @@
-# TouchGesture
-Touch Gesture Recognition With Depth Wise Separable Convolutions
+Motion Gesture Recognition:
 
-Dataset: We used the raw data of the Touchalytics Dataset.
+We use the HMOG dataset to perform biometric recognition.
 
-Paper: 
+Original paper: 
 
-Touchalytics: On the Applicability of Touchscreen Input as a Behavioral Biometric for Continuous Authentication
+https://arxiv.org/pdf/1501.01199.pdf
 
-https://arxiv.org/abs/1207.6231
+Dataset download:
+
+https://github.com/hmog-dataset/hmog
+
 
