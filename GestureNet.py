@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-import shutil, time, os, requests, random, copy
+
 
 import torch
 import torch.nn as nn
@@ -46,8 +46,8 @@ class GestureData(Dataset):
         data_set = data_set.astype(float)
         label_set = np.array(labels)
         
-        self.data_tensor = data_tensor
-        self.label_tensor = label_tensor
+        self.data_tensor = torch.tensor(data_set)
+        self.label_tensor = torch.tensor(label_set)
         
        
     def __len__(self) -> int:
@@ -63,6 +63,9 @@ class GestureData(Dataset):
     
 train_set = GestureData(Train=True)
 test_set = GestureData(Train=False)
+
+train_sampler = data.BatchSampler(data.SequentialSampler(train_set), 32, True)
+test_sampler = data.BatchSampler(data.SequentialSampler(test_set), 32, True)
 
 train_loader = DataLoader(train_set, batch_size=16, sampler=train_sampler)
 test_loader = DataLoader(test_set, batch_size=16, sampler=test_sampler)
